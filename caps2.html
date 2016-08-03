@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+    html,body{
+			margin:0;
+			padding:0;
+		}
+		#capsMaker{
+
+			width:900px;
+			margin:20px auto;
+		}
+		.capsFrame,.capsText,.settingFrame{
+			width:100%;
+
+		}
+		.capsFrame{
+			position:relative;
+		}
+		.imgFrame img{
+			width:100%;
+      height: 650px;
+		}
+		.capsText{
+			background:red;
+			color:white;
+			padding:10px;
+			width:calc(100% - 20px);
+			position:absolute;
+			bottom:0;
+		}
+		.capsText p{
+			margin:0;
+		}
+		.settingFrame input{
+			padding:10px 20px;
+			width:calc(100% - 42px);
+			border:1px solid red;
+			margin:10px 0px;
+		}
+		.settingFrame input:focus{
+			background:lightgray;
+			color:black;
+		}
+		.settingFrame button{
+			cursor:pointer;
+			border:none;
+			background:red;
+			color:white;
+			padding:5px 10px;
+		}
+    </style>
+  </head>
+  <body>
+    <script type="text/javascript">
+    function myFunction(){
+        var capsMaker = document.createElement("div")
+        capsMaker.setAttribute("id" , "main")
+        document.body.appendChild(capsMaker)
+
+        var capsFrame = document.createElement("div");
+        capsFrame.setAttribute("class", "capsFrame")
+        capsMaker.appendChild(capsFrame);
+        var imgFrame = document.createElement("div");
+        imgFrame.setAttribute("class" , "imgFrame");
+        capsMaker.appendChild(imgFrame);
+        var img = document.createElement("img");
+
+        img.src = "http://jdbs.org/files/attach/images/3945/987/246/201f2031a16f2ea3fbe2f084b34318f6.jpg";
+        imgFrame.appendChild(img);
+        var capsText = document.createElement("div");
+        capsText.setAttribute("class" , "capsText");
+        capsMaker.appendChild(capsText);
+        var para = document.createElement("p");
+        var text = document.createTextNode("Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus numquam magni, vel earum hic, quaerat consequuntur sit explicabo saepe mollitia, cumque esse quas nulla iusto aut repellat! Alias voluptate, nisi.");
+        para.appendChild(text);
+        capsText.appendChild(para);
+
+
+        var settingFrame = document.createElement("div");
+        settingFrame.setAttribute("class" , "settingFrame")
+        capsMaker.appendChild(settingFrame);
+        // document.insertBefore(capsMaker)
+        var placeholder = document.createElement("input");
+        placeholder.setAttribute("placeholder" , "Seklinizin linkini bura daxil edin");
+        settingFrame.appendChild(placeholder);
+
+        var btn = document.createElement("button")
+        btn.setAttribute("onclick" , "addImage()")
+        var txtt = document.createTextNode("ADD IMAGE")
+        btn.appendChild(txtt);
+        settingFrame.appendChild(btn);
+        var placeholder2 = document.createElement("input");
+        placeholder2.setAttribute("placeholder" , "Caps texti bura elave edin");
+        settingFrame.appendChild(placeholder2);
+        var btn2 = document.createElement("button");
+        btn2.setAttribute("onclick" , "addText()")
+        var txtt2 = document.createTextNode("ADD TEXT")
+        btn2.appendChild(txtt2);
+        settingFrame.appendChild(btn2);
+
+        var hr = document.createElement("hr");
+        settingFrame.appendChild(hr);
+        var btn3 = document.createElement("button")
+        btn.setAttribute("onclick" , "changeImageBorder()")
+        var txtt3 = document.createTextNode("changeImageBorder")
+        btn3.appendChild(txtt3);
+        settingFrame.appendChild(btn3);
+        var btn4 = document.createElement("button")
+        btn.setAttribute("onclick" , "changeTextBackgroundAndColor()")
+        var txtt4 = document.createTextNode("changeTextBackgroundAndColor")
+        btn4.appendChild(txtt4);
+        settingFrame.appendChild(btn4);
+        var btn5 = document.createElement("button")
+        btn.setAttribute("onclick" , "changeTextPositionToTop()")
+        var txtt5 = document.createTextNode("changeTextPositionToTop")
+        btn5.appendChild(txtt5);
+        settingFrame.appendChild(btn5);
+        document.body.appendChild(capsMaker);
+      }
+      myFunction();
+
+      var addImage =function(){
+
+  			var capsImg=document.getElementsByTagName("input")[0].value;
+  			if(capsImg==""){
+  				alert("Sekil yoxdur")
+  			}else{
+  				console.log(capsImg)
+  				document.getElementsByClassName("imgFrame")[0].getElementsByTagName("img")[0].src="images/"+capsImg;
+  			}
+
+
+  		}
+
+  		function addText(){
+  			var capsText=document.getElementsByTagName("input")[1].value;
+  			document.getElementsByClassName("capsText")[0].innerHTML="<p>"+capsText+"</p>"
+  		}
+    </script>
+  </body>
+</html>
